@@ -1,7 +1,7 @@
 import React from 'react';
-import {Image, SafeAreaView, TouchableOpacity, View} from 'react-native';
+import {Image, SafeAreaView, TouchableOpacity} from 'react-native';
 import {styles} from './styles';
-import {useDispatch, useSelector} from 'react-redux';
+import {useDispatch} from 'react-redux';
 
 export const PickScreen = () => {
   const dispatch = useDispatch();

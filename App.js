@@ -6,7 +6,7 @@
  * @flow strict-local
  */
 
-import React from 'react';
+import React, { useEffect } from 'react';
 import {NavigationContainer} from '@react-navigation/native';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {ViewScreen} from './screens/view-screen';
@@ -17,6 +17,7 @@ import {Provider} from 'react-redux';
 import createSagaMiddleware from 'redux-saga';
 import {photos} from './store/reducers';
 import {uploadFromCamera, uploadFromGallery} from './store/sagas';
+import SplashScreen from  "react-native-splash-screen";
 
 const sagaMiddleware = createSagaMiddleware();
 
@@ -28,6 +29,11 @@ sagaMiddleware.run(uploadFromCamera);
 const Tab = createBottomTabNavigator();
 
 export default function App() {
+
+  useEffect(() => {
+    SplashScreen.hide();
+  });
+
   return (
     <Provider store={store}>
       <NavigationContainer>
