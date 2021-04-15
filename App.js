@@ -12,11 +12,18 @@ import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {ViewScreen} from './screens/view-screen';
 import {PickScreen} from './screens/pick-screen';
 import {TabBar} from './components/tab-bar';
-import {createStore} from 'redux';
+import {createStore, applyMiddleware} from 'redux';
 import {Provider} from 'react-redux';
-import { photos } from './store/reducers';
+import createSagaMiddleware from 'redux-saga';
+import {photos} from './store/reducers';
+import {uploadFromCamera, uploadFromGallery} from './store/sagas';
 
-const store = createStore(photos);
+const sagaMiddleware = createSagaMiddleware();
+
+const store = createStore(photos, applyMiddleware(sagaMiddleware));
+
+sagaMiddleware.run(uploadFromGallery);
+sagaMiddleware.run(uploadFromCamera);
 
 const Tab = createBottomTabNavigator();
 
