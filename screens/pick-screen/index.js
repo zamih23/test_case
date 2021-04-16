@@ -6,9 +6,13 @@ import {useDispatch} from 'react-redux';
 export const PickScreen = () => {
   const dispatch = useDispatch();
 
-  const handlePressGallery = async () => {
+  const handlePressGallery = () => {
     dispatch({type: 'GET_PHOTO_GALLERY'});
   };
+
+  const handlePressCamera = () => {
+    dispatch({type: 'GET_PHOTO_CAMERA'})
+  }
   return (
     <SafeAreaView style={styles.container}>
       <TouchableOpacity
@@ -21,7 +25,7 @@ export const PickScreen = () => {
       </TouchableOpacity>
       <TouchableOpacity
         style={styles.imageConrainer}
-        onPress={() => dispatch({type: 'GET_PHOTO_CAMERA'})}>
+        onPress={handlePressCamera}>
         <Image
           source={require('./../../assets/camera.png')}
           style={styles.image}

@@ -5,7 +5,6 @@ import {ListItem} from 'react-native-elements';
 
 export const PhotoList = ({data}) => {
   const isEmptyList = Boolean(data.length === 0);
-  console.log(isEmptyList);
   return (
     <ScrollView
       contentContainerStyle={isEmptyList ? styles.emptyListContainer : null}>
