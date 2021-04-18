@@ -1,5 +1,5 @@
 import React from 'react';
-import {Image, SafeAreaView, TouchableOpacity} from 'react-native';
+import {Image, SafeAreaView, TouchableOpacity, Text} from 'react-native';
 import {styles} from './styles';
 import {useDispatch} from 'react-redux';
 
@@ -10,9 +10,6 @@ export const PickScreen = () => {
     dispatch({type: 'GET_PHOTO_GALLERY'});
   };
 
-  const handlePressCamera = () => {
-    dispatch({type: 'GET_PHOTO_CAMERA'})
-  }
   return (
     <SafeAreaView style={styles.container}>
       <TouchableOpacity
@@ -23,14 +20,7 @@ export const PickScreen = () => {
           style={styles.image}
         />
       </TouchableOpacity>
-      <TouchableOpacity
-        style={styles.imageConrainer}
-        onPress={handlePressCamera}>
-        <Image
-          source={require('./../../assets/camera.png')}
-          style={styles.image}
-        />
-      </TouchableOpacity>
+      <Text style={styles.text}>Press to choose photo</Text>
     </SafeAreaView>
   );
 };

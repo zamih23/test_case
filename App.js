@@ -16,7 +16,7 @@ import {createStore, applyMiddleware} from 'redux';
 import {Provider} from 'react-redux';
 import createSagaMiddleware from 'redux-saga';
 import {photos} from './store/reducers';
-import {uploadFromCamera, uploadFromGallery} from './store/sagas';
+import {uploadFromGallery} from './store/sagas';
 import SplashScreen from  "react-native-splash-screen";
 
 const sagaMiddleware = createSagaMiddleware();
@@ -24,7 +24,6 @@ const sagaMiddleware = createSagaMiddleware();
 const store = createStore(photos, applyMiddleware(sagaMiddleware));
 
 sagaMiddleware.run(uploadFromGallery);
-sagaMiddleware.run(uploadFromCamera);
 
 const Tab = createBottomTabNavigator();
 

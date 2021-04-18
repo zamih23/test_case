@@ -6,7 +6,7 @@ export const styles = StyleSheet.create({
     flex: 1,
     flexDirection: 'column',
     alignItems: 'center',
-    justifyContent: 'space-around',
+    justifyContent: 'center',
     paddingVertical: 70,
   },
   imageConrainer: {
@@ -19,4 +19,10 @@ export const styles = StyleSheet.create({
     width: 80,
     height: 80,
   },
+  text: {
+    textAlign: 'center',
+    fontSize: 25,
+    fontWeight: 'bold',
+    marginVertical: 10,
+  }
 });
